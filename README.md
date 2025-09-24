@@ -1,10 +1,9 @@
-Great question 👍 Let’s break down what your code is doing step by step:
-
 ** 1. Importing the requests library**
 python
 import requests
 
-* This lets you send HTTP requests to web APIs (in this case, OpenWeatherMap API).
+* This lets you send HTTP requests to web APIs (in this case, OpenWeatherMap API).*
+ 
 **2. API setup**
 python
 API_KEY = '5ae4c373cc54eb43325d86f2982fbddc'
@@ -27,6 +26,7 @@ def get_weather(city):
 * Prepares *parameters* (city name, API key, temperature in Celsius).
 * Sends an HTTP GET request to the OpenWeatherMap API.
 * Converts the API response to JSON format (data).
+  
 **4. Error Handling**
 python
 if response.status_code != 200 or data.get('cod') != 200:
@@ -34,6 +34,7 @@ if response.status_code != 200 or data.get('cod') != 200:
     return
 * Checks if the API request was successful (status_code 200 means success).
 * If not, prints an error message and stops.
+  
  **5. Extracting useful data**
 python
 weather = data['weather'][0]['description']
@@ -44,6 +45,7 @@ wind_speed = data['wind']['speed']
 * Extracts *temperature* in °C.
 * Extracts *humidity* percentage.
 * Extracts *wind speed* in m/s.
+  
 **6. Printing results**
 python
 print(f"-Weather in {city}")
@@ -52,12 +54,14 @@ print(f"- Temperature: {temperature}°C")
 print(f"- Humidity: {humidity}%")
 print(f"- Wind Speed: {wind_speed} m/s")
 * Displays the collected weather details nicely formatted.
-  ** 7. Main program**
+  
+** 7. Main program**
 python
 if _name_ == "_main_":
     city = input("Enter city name: ")
     get_weather(city)
 * This part is slightly wrong ❌ → It should be:
+  
 python
 if __name__ == "__main__":
 * When fixed, it runs the program only if you execute this file directly.
